@@ -1,9 +1,9 @@
-import CustomFieldSet from "./components/FieldSet";
+import DefaultTheme from "./styles/DefaultTheme";
 
 function App() {
   return (
     <>
-      <CustomFieldSet />
+      <DefaultTheme></DefaultTheme>
     </>
   );
 }
