@@ -1,9 +1,12 @@
 import DefaultTheme from "./styles/DefaultTheme";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <>
-      <DefaultTheme></DefaultTheme>
+      <DefaultTheme>
+        <Login />
+      </DefaultTheme>
     </>
   );
 }
