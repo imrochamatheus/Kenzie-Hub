@@ -19,6 +19,10 @@ const theme = {
       negative: "#E83F5B",
     },
   },
+  typography: {
+    label: "9.79px",
+    h: "12px",
+  },
 };
 
 const DefaultTheme = ({ children }) => {
