@@ -1,19 +1,7 @@
-import { Switch, Route } from "react-router-dom";
-
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import "./App.css";
 
 function App() {
-  return (
-    <Switch>
-      <Route path="/" exact>
-        <Login />
-      </Route>
-      <Route path="/register" exact>
-        <Register />
-      </Route>
-    </Switch>
-  );
+  return <></>;
 }
 
 export default App;
