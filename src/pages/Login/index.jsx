@@ -1,19 +1,23 @@
-import StyledLogin from "./styles";
 import Form from "../../components/Form";
 import Input from "../../components/Input";
 import DefaultButton from "../../components/DefaultButton";
+import StyledContainer from "../../components/StyledContainer";
 
 const Login = () => {
   return (
-    <StyledLogin>
+    <StyledContainer>
       <img alt="kenzieHub logo" src="./logo.svg" />
-      <div>
+      <div className="separaForm">
         <h3>Login</h3>
         <Form>
           <label htmlFor="#">Email</label>
-          <Input type="email" placeholder="Email..." />
+          <Input type="email" border="#FFF" placeholder="Email..." />
           <label htmlFor="#">Senha</label>
-          <Input type="password" placeholder="Informe sua senha..." />
+          <Input
+            type="password"
+            border="#FFF"
+            placeholder="Informe sua senha..."
+          />
           <DefaultButton background="#FF577F" color="#FFF">
             Entrar
           </DefaultButton>
@@ -23,7 +27,7 @@ const Login = () => {
           Cadastre-se
         </DefaultButton>
       </div>
-    </StyledLogin>
+    </StyledContainer>
   );
 };
 

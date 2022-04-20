@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const StyledLogin = styled.main`
+const StyledContainer = styled.main`
   display: flex;
   width: 100%;
   color: white;
-  gap: 37.07px;
+  gap: 15.07px;
   box-sizing: border-box;
 
   min-height: 100vh;
@@ -20,7 +20,7 @@ const StyledLogin = styled.main`
     letter-spacing: 0em;
   }
 
-  div {
+  .separaForm {
     width: 100%;
     gap: 27.27px;
     display: flex;
@@ -47,4 +47,4 @@ const StyledLogin = styled.main`
   }
 `;
 
-export default StyledLogin;
+export default StyledContainer;

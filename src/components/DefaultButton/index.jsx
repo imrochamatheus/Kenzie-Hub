@@ -6,8 +6,9 @@ const DefaultButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   border: ${({ border }) => (border ? `1px solid ${border}` : "none")};
-  padding: 0px, 22px, 0px, 22px;
+  padding: 0px 22px 0px 22px;
   color: ${(props) => props.color};
+  max-width: ${({ maxWidth }) => maxWidth || "100%"};
   background-color: ${(props) => props.background};
 `;
 
