@@ -4,7 +4,9 @@ const StyledLogin = styled.main`
   display: flex;
   width: 100%;
   color: white;
-  gap: 15.39px;
+  gap: 37.07px;
+  box-sizing: border-box;
+
   min-height: 100vh;
   align-items: center;
   flex-direction: column;

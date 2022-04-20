@@ -14,7 +14,7 @@ const Input = styled.input`
   background: #343b41;
   box-sizing: border-box;
   border: 1px solid white;
-  padding: 0px, 16px, 0px, 16px;
+  padding: 0px 16px 0px 16px;
 `;
 
 export default Input;
