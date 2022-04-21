@@ -10,9 +10,11 @@ const Input = (props) => {
         type={props.type}
         {...props.register}
       />
-      <Text size="10" color="#f33561" weight="100">
-        Error
-      </Text>
+      {props.error && (
+        <Text size="10" color="#f33561" weight="100">
+          {props.error.message}
+        </Text>
+      )}
     </Box>
   ) : (
     <>
