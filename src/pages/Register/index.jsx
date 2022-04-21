@@ -106,10 +106,11 @@ const Register = () => {
           />
           <label htmlFor="#">Selecionar mósulo</label>
           <Input type="select" register={register("modulo")}>
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="opel">Opel</option>
-            <option value="audi">Audi</option>
+            {Array.from(Array(6)).map((_, i) => (
+              <option key={i} value={`Módulo ${i + 1}`}>{`Módulo ${
+                i + 1
+              }`}</option>
+            ))}
           </Input>
           <DefaultButton background="#59323F" color="#FFF">
             Cadastrar
