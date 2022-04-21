@@ -1,13 +1,14 @@
 import Form from "../../components/Form";
 import Input from "../../components/Input";
+import Text from "../../components/Text";
 import Header from "../../components/Header";
 import DefaultButton from "../../components/DefaultButton";
-import StyledContainer from "../../components/StyledContainer";
+import MainContainer from "../../components/MainContainer";
 import FormContainer from "../../components/FormContainer";
 
 const Login = () => {
   return (
-    <StyledContainer>
+    <MainContainer>
       <Header justifyContent="center">
         <img alt="kenzieHub logo" src="./logo.svg" />
       </Header>
@@ -26,12 +27,14 @@ const Login = () => {
             Entrar
           </DefaultButton>
         </Form>
-        <p>Ainda não possui uma conta?</p>
+        <Text size="9.63" color="#868E96" align="center">
+          Ainda não possui uma conta?
+        </Text>
         <DefaultButton background="#868E96" color="#FFF">
           Cadastre-se
         </DefaultButton>
       </FormContainer>
-    </StyledContainer>
+    </MainContainer>
   );
 };
 
