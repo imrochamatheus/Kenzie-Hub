@@ -1,25 +1,20 @@
 import Form from "../../components/Form";
 import Input from "../../components/Input";
+import Header from "../../components/Header";
+import FormContainer from "../../components/FormContainer";
 import DefaultButton from "../../components/DefaultButton";
 import StyledContainer from "../../components/StyledContainer";
 
 const Register = () => {
   return (
     <StyledContainer>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "100%",
-          maxWidth: "297px",
-        }}
-      >
+      <Header>
         <img alt="kenzieHub logo" src="./logo.svg" />
         <DefaultButton maxWidth="79.54px" background="#212529" color="white">
           Voltar
         </DefaultButton>
-      </div>
-      <div className="separaForm">
+      </Header>
+      <FormContainer>
         <h3>Crie sua conta</h3>
         <Form>
           <label htmlFor="#">Nome</label>
@@ -41,7 +36,7 @@ const Register = () => {
             Cadastrar
           </DefaultButton>
         </Form>
-      </div>
+      </FormContainer>
     </StyledContainer>
   );
 };

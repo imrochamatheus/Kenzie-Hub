@@ -2,12 +2,13 @@ import Form from "../../components/Form";
 import Input from "../../components/Input";
 import DefaultButton from "../../components/DefaultButton";
 import StyledContainer from "../../components/StyledContainer";
+import FormContainer from "../../components/FormContainer";
 
 const Login = () => {
   return (
     <StyledContainer>
       <img alt="kenzieHub logo" src="./logo.svg" />
-      <div className="separaForm">
+      <FormContainer>
         <h3>Login</h3>
         <Form>
           <label htmlFor="#">Email</label>
@@ -26,7 +27,7 @@ const Login = () => {
         <DefaultButton background="#868E96" color="#FFF">
           Cadastre-se
         </DefaultButton>
-      </div>
+      </FormContainer>
     </StyledContainer>
   );
 };
