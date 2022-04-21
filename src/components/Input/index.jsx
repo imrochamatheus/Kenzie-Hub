@@ -40,7 +40,7 @@ const StyledSelect = styled.select`
 
 const Input = (props) => {
   return props.type !== "select" ? (
-    <Box flexDirection="column" alignItems="flex-start" gap="3px">
+    <Box flexDirection="column" alignItems="flex-start" gap="5px">
       <StyledInput border={props.border} />
       <Text size="10" color="red" weight="100">
         Error
