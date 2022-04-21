@@ -1,5 +1,6 @@
 import Form from "../../components/Form";
 import Input from "../../components/Input";
+import Header from "../../components/Header";
 import DefaultButton from "../../components/DefaultButton";
 import StyledContainer from "../../components/StyledContainer";
 import FormContainer from "../../components/FormContainer";
@@ -7,7 +8,9 @@ import FormContainer from "../../components/FormContainer";
 const Login = () => {
   return (
     <StyledContainer>
-      <img alt="kenzieHub logo" src="./logo.svg" />
+      <Header justifyContent="center">
+        <img alt="kenzieHub logo" src="./logo.svg" />
+      </Header>
       <FormContainer>
         <h3>Login</h3>
         <Form>
