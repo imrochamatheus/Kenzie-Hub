@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import Form from "../../components/Form";
 import Text from "../../components/Text";
 import Input from "../../components/Input";
@@ -7,6 +9,9 @@ import DefaultButton from "../../components/DefaultButton";
 import MainContainer from "../../components/MainContainer";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const handleClick = () => navigate("/", { replace: true });
+
   return (
     <MainContainer>
       <Box>
@@ -17,6 +22,7 @@ const Register = () => {
           height="16.92px"
         />
         <DefaultButton
+          onClick={handleClick}
           maxWidth="79.54px"
           background="#212529"
           color="white"
