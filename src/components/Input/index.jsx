@@ -6,6 +6,7 @@ const Input = (props) => {
   return props.type !== "select" ? (
     <Box flexDirection="column" alignItems="flex-start" gap="5px">
       <StyledInput
+        autoComplete="off"
         border={props.border}
         type={props.type}
         {...props.register}
