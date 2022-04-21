@@ -6,7 +6,7 @@ const Input = (props) => {
   return props.type !== "select" ? (
     <Box flexDirection="column" alignItems="flex-start" gap="5px">
       <StyledInput border={props.border} />
-      <Text size="10" color="red" weight="100">
+      <Text size="10" color="#f33561" weight="100">
         Error
       </Text>
     </Box>
