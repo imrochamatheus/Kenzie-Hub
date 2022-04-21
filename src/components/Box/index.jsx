@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 
-const Header = styled.div`
+const Box = styled.div`
   width: 100%;
   display: flex;
   ${({ flexDirection }) =>
@@ -19,4 +19,4 @@ const Header = styled.div`
   align-items: ${({ alignItems }) => alignItems || `center`};
 `;
 
-export default Header;
+export default Box;

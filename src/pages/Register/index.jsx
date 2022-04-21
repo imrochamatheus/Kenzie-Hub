@@ -1,7 +1,7 @@
 import Form from "../../components/Form";
 import Text from "../../components/Text";
 import Input from "../../components/Input";
-import Header from "../../components/Header";
+import Box from "../../components/Box";
 import FormContainer from "../../components/FormContainer";
 import DefaultButton from "../../components/DefaultButton";
 import MainContainer from "../../components/MainContainer";
@@ -9,7 +9,7 @@ import MainContainer from "../../components/MainContainer";
 const Register = () => {
   return (
     <MainContainer>
-      <Header>
+      <Box>
         <img
           alt="kenzieHub logo"
           src="./logo.svg"
@@ -24,14 +24,14 @@ const Register = () => {
         >
           Voltar
         </DefaultButton>
-      </Header>
+      </Box>
       <FormContainer>
-        <Header flexDirection="column" gap="22px">
+        <Box flexDirection="column" gap="22px">
           <h3>Crie sua conta</h3>
           <Text size="12" color="#868E96">
             Rápido e grátis, vamos nessa
           </Text>
-        </Header>
+        </Box>
         <Form>
           <label htmlFor="#">Nome</label>
           <Input type="text" placeholder="Nome..." />
