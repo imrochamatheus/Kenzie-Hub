@@ -1,11 +1,22 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 const Header = styled.div`
   width: 100%;
   display: flex;
-  max-width: ${({ maxWidth }) => (maxWidth ? maxWidth : `297px`)};
-  justify-content: ${({ justifyContent }) =>
-    justifyContent ? justifyContent : `space-between`};
+  ${({ flexDirection }) =>
+    flexDirection &&
+    css`
+      flex-direction: ${flexDirection};
+    `};
+  ${({ gap }) =>
+    gap &&
+    css`
+      gap: ${gap};
+    `};
+  max-width: ${({ maxWidth }) => maxWidth || `297px`};
+  justify-content: ${({ justifyContent }) => justifyContent || `space-between`};
+  align-items: ${({ alignItems }) => alignItems || `center`};
 `;
 
 export default Header;
