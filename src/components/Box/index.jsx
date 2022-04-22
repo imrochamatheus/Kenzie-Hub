@@ -4,6 +4,7 @@ import { css } from "styled-components";
 const Box = styled.div`
   width: 100%;
   display: flex;
+  box-sizing: border-box;
   ${({ flexDirection }) =>
     flexDirection &&
     css`
@@ -13,6 +14,11 @@ const Box = styled.div`
     gap &&
     css`
       gap: ${gap};
+    `};
+  ${({ background }) =>
+    background &&
+    css`
+      background: ${background};
     `};
   max-width: ${({ maxWidth }) => maxWidth || `297px`};
   justify-content: ${({ justifyContent }) => justifyContent || `space-between`};

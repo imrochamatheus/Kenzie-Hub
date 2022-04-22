@@ -63,7 +63,9 @@ const Login = () => {
         <img alt="kenzieHub logo" src="./logo.svg" />
       </Box>
       <FormContainer>
-        <h3>Login</h3>
+        <Text size="14.44" align="center" weight="700">
+          Login
+        </Text>
         <Form onSubmit={handleSubmit(onSubmitFunction)}>
           <Input
             type="email"

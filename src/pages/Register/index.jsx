@@ -70,42 +70,47 @@ const Register = () => {
       </Box>
       <FormContainer>
         <Box flexDirection="column" gap="22px">
-          <h3>Crie sua conta</h3>
+          <Text size="14.44" align="center" weight="700">
+            Crie sua conta
+          </Text>
           <Text size="12" color="#868E96">
             Rápido e grátis, vamos nessa
           </Text>
         </Box>
         <Form onSubmit={handleSubmit(onSubmitFunction)}>
-          <label htmlFor="#">Nome</label>
           <Input
+            label="Nome"
             type="text"
             placeholder="Nome..."
             error={errors.nome}
             register={register("nome")}
           />
-          <label htmlFor="#">Email</label>
           <Input
+            label="Email"
             type="email"
             placeholder="Email..."
             error={errors.email}
             register={register("email")}
           />
-          <label htmlFor="#">Senha</label>
           <Input
+            label="Senha"
             type="password"
             error={errors.password}
             placeholder="Informe sua senha..."
             register={register("password")}
           />
-          <label htmlFor="#">Confirmar senha</label>
           <Input
+            label="Confirmação de senha"
             type="password"
             error={errors.passwordConfirmation}
             placeholder="Confirme sua senha..."
             register={register("passwordConfirmation")}
           />
-          <label htmlFor="#">Selecionar mósulo</label>
-          <Input type="select" register={register("modulo")}>
+          <Input
+            type="select"
+            register={register("modulo")}
+            label="Selecionar módulo"
+          >
             {Array.from(Array(6)).map((_, i) => (
               <option key={i} value={`Módulo ${i + 1}`}>{`Módulo ${
                 i + 1

@@ -11,14 +11,6 @@ const MainContainer = styled.main`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
-  h3 {
-    text-align: center;
-    font-size: 14.44px;
-    font-weight: 700;
-    line-height: 22px;
-    letter-spacing: 0em;
-  }
 `;
 
 export default MainContainer;
