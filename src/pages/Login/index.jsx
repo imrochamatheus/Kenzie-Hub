@@ -65,16 +65,16 @@ const Login = () => {
       <FormContainer>
         <h3>Login</h3>
         <Form onSubmit={handleSubmit(onSubmitFunction)}>
-          <label htmlFor="#">Email</label>
           <Input
             type="email"
             border="#FFF"
+            label="Email"
             placeholder="Email..."
             register={register("email")}
             error={errors.email}
           />
-          <label htmlFor="#">Senha</label>
           <Input
+            label="Senha"
             type="password"
             border="#FFF"
             register={register("password")}

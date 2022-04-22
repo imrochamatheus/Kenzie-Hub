@@ -19,11 +19,6 @@ const MainContainer = styled.main`
     line-height: 22px;
     letter-spacing: 0em;
   }
-
-  label {
-    font-size: 10px;
-    font-weight: 400;
-  }
 `;
 
 export default MainContainer;
