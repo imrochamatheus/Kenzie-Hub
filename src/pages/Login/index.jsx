@@ -1,7 +1,10 @@
+import axios from "axios";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast, ToastContainer } from "react-toastify";
 
 import Form from "../../components/Form";
 import Input from "../../components/Input";
@@ -11,12 +14,21 @@ import DefaultButton from "../../components/DefaultButton";
 import MainContainer from "../../components/MainContainer";
 import FormContainer from "../../components/FormContainer";
 
+const req = axios.create({
+  baseURL: "https://kenziehub.herokuapp.com/",
+  timeout: 1000,
+  headers: { "Content-type": "application/json" },
+});
+
 const schema = yup.object().shape({
   email: yup
     .string()
     .email("Informe um email válido!")
     .required("O campo email é obrigatório!"),
-  password: yup.string().required("O campo senha é obrigatório!"),
+  password: yup
+    .string()
+    .min(6, "Sua senha precisa ter pelo menos 6 dígitos")
+    .required("O campo senha é obrigatório!"),
 });
 
 const Login = () => {
@@ -32,7 +44,10 @@ const Login = () => {
   const handleClick = () => navigate("/register", { replace: true });
 
   const onSubmitFunction = (formData) => {
-    console.log(formData);
+    req
+      .post("/sessions", formData)
+      .then((response) => console.log(response))
+      .catch(({ response: { data: error } }) => toast.error(error.message));
   };
 
   return (
@@ -70,6 +85,7 @@ const Login = () => {
           Cadastre-se
         </DefaultButton>
       </FormContainer>
+      <ToastContainer />
     </MainContainer>
   );
 };
