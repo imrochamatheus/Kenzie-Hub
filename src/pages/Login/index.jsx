@@ -11,7 +11,6 @@ import Input from "../../components/Input";
 import Text from "../../components/Text";
 import Box from "../../components/Box";
 import DefaultButton from "../../components/DefaultButton";
-import MainContainer from "../../components/MainContainer";
 
 const req = axios.create({
   baseURL: "https://kenziehub.herokuapp.com/",
@@ -57,7 +56,14 @@ const Login = () => {
   };
 
   return (
-    <MainContainer>
+    <Box
+      direction="column"
+      gap="15.07px"
+      padding="15px 0"
+      justifyContent="center"
+      alignItems="center"
+      style={{ minHeight: "100vh", margin: "0 auto", color: "#FFF" }}
+    >
       <Box justifyContent="center">
         <img alt="kenzieHub logo" src="./logo.svg" />
       </Box>
@@ -103,7 +109,7 @@ const Login = () => {
         </DefaultButton>
       </Box>
       <ToastContainer />
-    </MainContainer>
+    </Box>
   );
 };
 

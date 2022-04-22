@@ -8,7 +8,6 @@ import Text from "../../components/Text";
 import Input from "../../components/Input";
 import Box from "../../components/Box";
 import DefaultButton from "../../components/DefaultButton";
-import MainContainer from "../../components/MainContainer";
 
 const schema = yup.object().shape({
   nome: yup
@@ -49,7 +48,14 @@ const Register = () => {
   };
 
   return (
-    <MainContainer>
+    <Box
+      direction="column"
+      gap="15.07px"
+      padding="15px 0"
+      justifyContent="center"
+      alignItems="center"
+      style={{ minHeight: "100vh", margin: "0 auto", color: "#FFF" }}
+    >
       <Box>
         <img
           alt="kenzieHub logo"
@@ -130,7 +136,7 @@ const Register = () => {
           </DefaultButton>
         </Form>
       </Box>
-    </MainContainer>
+    </Box>
   );
 };
 
