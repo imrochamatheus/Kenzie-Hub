@@ -46,7 +46,14 @@ const Login = () => {
   const onSubmitFunction = (formData) => {
     req
       .post("/sessions", formData)
-      .then((response) => console.log(response))
+      .then((response) => {
+        const {
+          token,
+          user: { name },
+        } = response.data;
+
+        localStorage.setItem("userData", JSON.stringify({ token, name }));
+      })
       .catch(({ response: { data: error } }) => toast.error(error.message));
   };
 
