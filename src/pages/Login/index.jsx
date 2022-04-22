@@ -51,6 +51,7 @@ const Login = () => {
         } = response.data;
 
         localStorage.setItem("userData", JSON.stringify({ token, name }));
+        navigate("/dashboard", { replace: true });
       })
       .catch(({ response: { data: error } }) => toast.error(error.message));
   };

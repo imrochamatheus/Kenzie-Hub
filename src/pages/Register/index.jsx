@@ -45,6 +45,7 @@ const Register = () => {
 
   const onSubmitFunction = (formData) => {
     console.log(formData);
+    navigate("/", { replace: true });
   };
 
   return (
