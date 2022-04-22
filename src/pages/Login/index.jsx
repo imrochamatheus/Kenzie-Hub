@@ -62,7 +62,16 @@ const Login = () => {
       <Box justifyContent="center">
         <img alt="kenzieHub logo" src="./logo.svg" />
       </Box>
-      <FormContainer>
+      <Box
+        radius="3.20867px"
+        gap="27.27px"
+        bg="#212529"
+        direction="column"
+        style={{
+          padding: "29px 18px 40px 18px",
+          boxShadow: "0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25)",
+        }}
+      >
         <Text size="14.44" align="center" weight="700">
           Login
         </Text>
@@ -93,7 +102,7 @@ const Login = () => {
         <DefaultButton background="#868E96" color="#FFF" onClick={handleClick}>
           Cadastre-se
         </DefaultButton>
-      </FormContainer>
+      </Box>
       <ToastContainer />
     </MainContainer>
   );

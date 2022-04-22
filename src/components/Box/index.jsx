@@ -5,20 +5,25 @@ const Box = styled.div`
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  ${({ flexDirection }) =>
-    flexDirection &&
+  ${({ direction }) =>
+    direction &&
     css`
-      flex-direction: ${flexDirection};
+      flex-direction: ${direction};
     `};
   ${({ gap }) =>
     gap &&
     css`
       gap: ${gap};
     `};
-  ${({ background }) =>
-    background &&
+  ${({ bg }) =>
+    bg &&
     css`
-      background: ${background};
+      background: ${bg};
+    `};
+  ${({ radius }) =>
+    radius &&
+    css`
+      border-radius: ${radius};
     `};
   max-width: ${({ maxWidth }) => maxWidth || `297px`};
   justify-content: ${({ justifyContent }) => justifyContent || `space-between`};

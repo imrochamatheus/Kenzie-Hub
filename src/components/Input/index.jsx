@@ -4,10 +4,10 @@ import { StyledInput, StyledSelect } from "./styles";
 
 const Input = (props) => {
   return (
-    <Box flexDirection="column" alignItems="flex-start" gap="15.07px">
+    <Box direction="column" alignItems="flex-start" gap="15.07px">
       <label style={{ fontSize: "10px" }}>{props.label}</label>
       {props.type !== "select" ? (
-        <Box flexDirection="column" alignItems="flex-start" gap="5px">
+        <Box direction="column" alignItems="flex-start" gap="5px">
           <StyledInput
             autoComplete="off"
             border={props.border}
