@@ -7,7 +7,6 @@ import Form from "../../components/Form";
 import Text from "../../components/Text";
 import Input from "../../components/Input";
 import Box from "../../components/Box";
-import FormContainer from "../../components/FormContainer";
 import DefaultButton from "../../components/DefaultButton";
 import MainContainer from "../../components/MainContainer";
 
@@ -68,8 +67,17 @@ const Register = () => {
           Voltar
         </DefaultButton>
       </Box>
-      <FormContainer>
-        <Box flexDirection="column" gap="22px">
+      <Box
+        radius="3.20867px"
+        gap="27.27px"
+        bg="#212529"
+        direction="column"
+        style={{
+          padding: "29px 18px 40px 18px",
+          boxShadow: "0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25)",
+        }}
+      >
+        <Box direction="column" gap="22px">
           <Text size="14.44" align="center" weight="700">
             Crie sua conta
           </Text>
@@ -121,7 +129,7 @@ const Register = () => {
             Cadastrar
           </DefaultButton>
         </Form>
-      </FormContainer>
+      </Box>
     </MainContainer>
   );
 };

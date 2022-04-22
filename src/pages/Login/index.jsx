@@ -12,7 +12,6 @@ import Text from "../../components/Text";
 import Box from "../../components/Box";
 import DefaultButton from "../../components/DefaultButton";
 import MainContainer from "../../components/MainContainer";
-import FormContainer from "../../components/FormContainer";
 
 const req = axios.create({
   baseURL: "https://kenziehub.herokuapp.com/",
