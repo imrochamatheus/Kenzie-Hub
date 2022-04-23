@@ -21,7 +21,7 @@ const Home = () => {
     instance
       .get(`/users/${userId}`)
       .then((response) => setUserTechs(response.data.techs));
-  }, []);
+  }, [modalIsOpen]);
 
   const logout = () => {
     localStorage.clear();
