@@ -77,8 +77,12 @@ const Home = () => {
       </Box>
       <Box maxWidth="100%">
         <Text>Tecnologias</Text>
-        <DefaultButton maxWidth="32.49px" background="#212529">
-          <Text color="#FFF" size="24" onClick={openModal}>
+        <DefaultButton
+          maxWidth="32.49px"
+          background="#212529"
+          onClick={openModal}
+        >
+          <Text color="#FFF" size="24">
             +
           </Text>
         </DefaultButton>
