@@ -5,10 +5,15 @@ import instance from "../../axios";
 import Box from "../../components/Box";
 import Text from "../../components/Text";
 import DefaultButton from "../../components/DefaultButton";
+import AddTechModal from "../../components/Modal/AddTechModal";
 
 const Home = () => {
   const navigate = useNavigate();
+
   const [userTechs, setUserTechs] = useState(null);
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
 
   useEffect(() => {
     const userId = JSON.parse(localStorage.getItem("userData")).id;
@@ -73,7 +78,7 @@ const Home = () => {
       <Box maxWidth="100%">
         <Text>Tecnologias</Text>
         <DefaultButton maxWidth="32.49px" background="#212529">
-          <Text color="#FFF" size="24">
+          <Text color="#FFF" size="24" onClick={openModal}>
             +
           </Text>
         </DefaultButton>
@@ -96,6 +101,7 @@ const Home = () => {
             ))}
         </ul>
       </Box>
+      <AddTechModal {...{ modalIsOpen, setIsOpen }} />
     </Box>
   );
 };
