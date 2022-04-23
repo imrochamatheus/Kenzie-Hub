@@ -1,11 +1,22 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import instance from "../../axios";
 import Box from "../../components/Box";
 import Text from "../../components/Text";
 import DefaultButton from "../../components/DefaultButton";
 
 const Home = () => {
   const navigate = useNavigate();
+  const [userTechs, setUserTechs] = useState(null);
+
+  useEffect(() => {
+    const userId = JSON.parse(localStorage.getItem("userData")).id;
+
+    instance
+      .get(`/users/${userId}`)
+      .then((response) => setUserTechs(response.data.techs));
+  }, []);
 
   const logout = () => {
     localStorage.clear();
@@ -74,24 +85,15 @@ const Home = () => {
         radius="4px"
       >
         <ul>
-          <li>
-            <Text size="14.2">Tecnologia</Text>
-            <Text color="#868E96" size="12.18">
-              Nível
-            </Text>
-          </li>
-          <li>
-            <Text size="14.2">Tecnologia</Text>
-            <Text color="#868E96" size="12.18">
-              Nível
-            </Text>
-          </li>
-          <li>
-            <Text size="14.2">Tecnologia</Text>
-            <Text color="#868E96" size="12.18">
-              Nível
-            </Text>
-          </li>
+          {userTechs &&
+            userTechs.map((tech) => (
+              <li>
+                <Text size="14.2">{tech.title}</Text>
+                <Text color="#868E96" size="12.18">
+                  {tech.status}
+                </Text>
+              </li>
+            ))}
         </ul>
       </Box>
     </Box>

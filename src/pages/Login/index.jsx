@@ -11,12 +11,7 @@ import Input from "../../components/Input";
 import Text from "../../components/Text";
 import Box from "../../components/Box";
 import DefaultButton from "../../components/DefaultButton";
-
-const req = axios.create({
-  baseURL: "https://kenziehub.herokuapp.com/",
-  timeout: 1000,
-  headers: { "Content-type": "application/json" },
-});
+import instance from "../../axios";
 
 const schema = yup.object().shape({
   email: yup
@@ -42,15 +37,15 @@ const Login = () => {
   const handleClick = () => navigate("/register", { replace: true });
 
   const onSubmitFunction = (formData) => {
-    req
+    instance
       .post("/sessions", formData)
       .then((response) => {
         const {
           token,
-          user: { name },
+          user: { name, id },
         } = response.data;
 
-        localStorage.setItem("userData", JSON.stringify({ token, name }));
+        localStorage.setItem("userData", JSON.stringify({ token, name, id }));
         navigate("/home", { replace: true });
       })
       .catch(({ response: { data: error } }) => toast.error(error.message));
