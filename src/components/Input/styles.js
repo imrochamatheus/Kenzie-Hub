@@ -17,6 +17,11 @@ const style = css`
   border: 1px solid white;
   padding: 0px 16px 0px 16px;
   border: ${({ border }) => (border ? `1px solid ${border};` : "none")};
+
+  &:focus {
+    background-color: #868e96;
+    border: 1px solid white;
+  }
 `;
 
 const StyledInput = styled.input`

@@ -87,7 +87,7 @@ const Home = () => {
         <ul>
           {userTechs &&
             userTechs.map((tech) => (
-              <li>
+              <li key={tech.id}>
                 <Text size="14.2">{tech.title}</Text>
                 <Text color="#868E96" size="12.18">
                   {tech.status}
