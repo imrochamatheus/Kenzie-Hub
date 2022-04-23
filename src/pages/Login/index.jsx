@@ -1,4 +1,3 @@
-import axios from "axios";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";

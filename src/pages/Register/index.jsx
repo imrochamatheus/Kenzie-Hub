@@ -1,8 +1,11 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast, ToastContainer } from "react-toastify";
 
+import instance from "../../axios";
 import Form from "../../components/Form";
 import Text from "../../components/Text";
 import Input from "../../components/Input";
@@ -10,7 +13,7 @@ import Box from "../../components/Box";
 import DefaultButton from "../../components/DefaultButton";
 
 const schema = yup.object().shape({
-  nome: yup
+  name: yup
     .string()
     .required("O campo nome é obrigatório!")
     .matches(/^[a-zA-Z|| ]+$/, "O campo nome deve possuir apenas letras"),
@@ -43,9 +46,37 @@ const Register = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (formData) => {
-    console.log(formData);
-    navigate("/", { replace: true });
+  const onSubmitFunction = async (formData) => {
+    const newUserData = {
+      ...formData,
+      bio: "none",
+      contact: "none",
+    };
+
+    const creatingUser = instance.post("users", newUserData);
+
+    toast
+      .promise(creatingUser, {
+        pending: "Aguarde...",
+        success:
+          "Usuário criado com sucesso. Você será redirecionado em breve...",
+        error: {
+          render({
+            data: {
+              response: {
+                data: { message },
+              },
+            },
+          }) {
+            return message;
+          },
+        },
+      })
+      .then((_) => {
+        setTimeout(() => {
+          navigate("/", { replace: true });
+        }, 3000);
+      });
   };
 
   return (
@@ -98,7 +129,7 @@ const Register = () => {
             type="text"
             placeholder="Nome..."
             error={errors.nome}
-            register={register("nome")}
+            register={register("name")}
           />
           <Input
             label="Email"
@@ -123,7 +154,7 @@ const Register = () => {
           />
           <Input
             type="select"
-            register={register("modulo")}
+            register={register("course_module")}
             label="Selecionar módulo"
           >
             {Array.from(Array(6)).map((_, i) => (
@@ -137,6 +168,7 @@ const Register = () => {
           </DefaultButton>
         </Form>
       </Box>
+      <ToastContainer />
     </Box>
   );
 };
