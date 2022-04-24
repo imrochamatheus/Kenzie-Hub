@@ -62,6 +62,7 @@ const AddTechModal = ({ modalIsOpen, setIsOpen }) => {
             },
           },
         }) {
+          instance.defaults.headers.common["Authorization"] = null;
           return message;
         },
       },

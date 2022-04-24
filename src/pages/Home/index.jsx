@@ -33,11 +33,16 @@ const Home = () => {
     navigate("/", { replace: true });
   };
 
-  const clickCaptureFunction = ({ target: { id } }) => {
-    const clickedTech = userTechs.find((tech) => tech.id === id);
+  const clickCaptureFunction = (event) => {
+    const clickedElement = event.target;
 
-    setSelectedTech(clickedTech);
-    setRemoveModalIsOpen(true);
+    if (clickedElement.id) {
+      const clickedTech = userTechs.find(
+        (tech) => tech.id === clickedElement.id
+      );
+      setSelectedTech(clickedTech);
+      setRemoveModalIsOpen(true);
+    }
   };
 
   return (
@@ -83,7 +88,7 @@ const Home = () => {
         </Text>
 
         <Text size="12" color="#868E96" align="center">
-          Primeiro módulo (Introdução ao front-end)
+          {JSON.parse(localStorage.getItem("userData")).course_module}
         </Text>
       </Box>
       <Box maxWidth="100%">

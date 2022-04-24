@@ -41,10 +41,13 @@ const Login = () => {
       .then((response) => {
         const {
           token,
-          user: { name, id },
+          user: { name, id, course_module },
         } = response.data;
 
-        localStorage.setItem("userData", JSON.stringify({ token, name, id }));
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ token, name, id, course_module })
+        );
         navigate("/home", { replace: true });
       })
       .catch(({ response: { data: error } }) => toast.error(error.message));

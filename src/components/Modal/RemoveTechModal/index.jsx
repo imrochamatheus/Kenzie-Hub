@@ -22,7 +22,7 @@ const RemoveTechModal = ({
   selectedTech,
 }) => {
   const [actionType, setActionType] = useState(null);
-  const [currentTech, setCurrentTech] = useState("");
+  const [currentTech, setCurrentTech] = useState(selectedTech);
 
   const closeModal = () => {
     setRemoveModalIsOpen(false);
@@ -73,7 +73,6 @@ const RemoveTechModal = ({
             status: "iniciante",
           });
           closeModal();
-          return "Nova tecnologia adicionada com sucesso!";
         },
       },
       error: {
@@ -84,6 +83,7 @@ const RemoveTechModal = ({
             },
           },
         }) {
+          instance.defaults.headers.common["Authorization"] = null;
           return message;
         },
       },
