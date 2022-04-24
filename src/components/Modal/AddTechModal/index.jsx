@@ -117,7 +117,7 @@ const AddTechModal = ({ modalIsOpen, setIsOpen }) => {
             <option key={2} value="intermediário">
               Intermediário
             </option>
-            <option key={3} value="avancado">
+            <option key={3} value="Avançado">
               Avançado
             </option>
           </Input>

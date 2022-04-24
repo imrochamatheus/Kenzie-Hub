@@ -9,7 +9,6 @@ const Input = (props) => {
       {props.type !== "select" ? (
         <Box direction="column" alignItems="flex-start" gap="5px">
           <StyledInput
-            value={props.value}
             autoComplete="off"
             border={props.border}
             type={props.type}
@@ -22,9 +21,7 @@ const Input = (props) => {
           )}
         </Box>
       ) : (
-        <StyledSelect {...props.register} value={props.value}>
-          {props.children}
-        </StyledSelect>
+        <StyledSelect {...props.register}>{props.children}</StyledSelect>
       )}
     </Box>
   );

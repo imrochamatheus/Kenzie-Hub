@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { toast, ToastContainer } from "react-toastify";
@@ -22,8 +22,8 @@ const RemoveTechModal = ({
   selectedTech,
 }) => {
   const [actionType, setActionType] = useState(null);
+  const [currentTech, setCurrentTech] = useState("");
 
-  console.log(selectedTech);
   const closeModal = () => {
     setRemoveModalIsOpen(false);
   };
@@ -34,6 +34,7 @@ const RemoveTechModal = ({
 
   const {
     register,
+    setValue,
     handleSubmit,
     reset,
     formState: { errors },
@@ -41,37 +42,52 @@ const RemoveTechModal = ({
     resolver: yupResolver(schema),
   });
 
+  useEffect(() => {
+    setCurrentTech(selectedTech);
+  }, [selectedTech]);
+
+  setValue("title", currentTech?.title, { shouldDirty: true });
+  setValue("status", currentTech?.status, { shouldDirty: true });
+
   const onSubmitFunction = (data) => {
-    console.log(data, actionType);
     const token = JSON.parse(localStorage.getItem("userData")).token;
     instance.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-    // const addTech = instance.post(`users/techs`, data);
-    // toast.promise(addTech, {
-    //   pending: "Aguarde...",
-    //   success: {
-    //     render() {
-    //       instance.defaults.headers.common["Authorization"] = null;
-    //       reset({
-    //         title: "",
-    //         status: "iniciante",
-    //       });
-    //       closeModal();
-    //       return "Nova tecnologia adicionada com sucesso!";
-    //     },
-    //   },
-    //   error: {
-    //     render({
-    //       data: {
-    //         response: {
-    //           data: { message },
-    //         },
-    //       },
-    //     }) {
-    //       return message;
-    //     },
-    //   },
-    // });
+    let requisition = "";
+
+    if (actionType === "update") {
+      requisition = instance.put(`users/techs/${selectedTech.id}`, {
+        status: data.status,
+      });
+    } else {
+      requisition = instance.delete(`users/techs/${selectedTech.id}`);
+    }
+
+    toast.promise(requisition, {
+      pending: "Aguarde...",
+      success: {
+        render() {
+          instance.defaults.headers.common["Authorization"] = null;
+          reset({
+            title: "",
+            status: "iniciante",
+          });
+          closeModal();
+          return "Nova tecnologia adicionada com sucesso!";
+        },
+      },
+      error: {
+        render({
+          data: {
+            response: {
+              data: { message },
+            },
+          },
+        }) {
+          return message;
+        },
+      },
+    });
   };
 
   return (
@@ -103,13 +119,14 @@ const RemoveTechModal = ({
       >
         <Form onSubmit={handleSubmit(onSubmitFunction)}>
           <Input
+            register={register("title")}
             label="Nome"
             type="text"
             border="#FFF"
-            register={register("title")}
+            // register={register("title")}
             error={errors.title}
             placeholder="Nome da tecnologia..."
-            value={selectedTech?.title ? selectedTech.title : ""}
+            value={selectedTech?.title}
           />
           <Input
             register={register("status")}
@@ -121,14 +138,10 @@ const RemoveTechModal = ({
             <option key={1} value="iniciante">
               Iniciante
             </option>
-            <option
-              key={2}
-              value="intermediário"
-              selected={({ value }) => value === "Intermediário"}
-            >
+            <option key={2} value="intermediário">
               Intermediário
             </option>
-            <option key={3} value="avancado">
+            <option key={3} value="Avançado">
               Avançado
             </option>
           </Input>
