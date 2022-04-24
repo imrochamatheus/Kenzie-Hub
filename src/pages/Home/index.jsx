@@ -6,12 +6,16 @@ import Box from "../../components/Box";
 import Text from "../../components/Text";
 import DefaultButton from "../../components/DefaultButton";
 import AddTechModal from "../../components/Modal/AddTechModal";
+import RemoveTechModal from "../../components/Modal/RemoveTechModal";
 
 const Home = () => {
   const navigate = useNavigate();
 
   const [userTechs, setUserTechs] = useState(null);
+  const [selectedTech, setSelectedTech] = useState(null);
+
   const [modalIsOpen, setIsOpen] = useState(false);
+  const [removeModalIsOpen, setRemoveModalIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
 
@@ -27,6 +31,13 @@ const Home = () => {
     localStorage.clear();
 
     navigate("/", { replace: true });
+  };
+
+  const clickCaptureFunction = ({ target: { id } }) => {
+    const clickedTech = userTechs.find((tech) => tech.id === id);
+
+    setSelectedTech(clickedTech);
+    setRemoveModalIsOpen(true);
   };
 
   return (
@@ -93,10 +104,10 @@ const Home = () => {
         style={{ padding: "18px 12px" }}
         radius="4px"
       >
-        <ul>
+        <ul onClickCapture={clickCaptureFunction}>
           {userTechs &&
             userTechs.map((tech) => (
-              <li key={tech.id}>
+              <li key={tech.id} id={tech.id}>
                 <Text size="14.2">{tech.title}</Text>
                 <Text color="#868E96" size="12.18">
                   {tech.status}
@@ -106,6 +117,9 @@ const Home = () => {
         </ul>
       </Box>
       <AddTechModal {...{ modalIsOpen, setIsOpen }} />
+      <RemoveTechModal
+        {...{ removeModalIsOpen, setRemoveModalIsOpen, selectedTech }}
+      />
     </Box>
   );
 };
